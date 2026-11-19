@@ -39,12 +39,22 @@
   <div class="player-meta">
     <div class="player-title" id="player-title">Nothing playing</div>
     <div class="player-sub" id="player-sub">Pick a song in the Listen hub</div>
+    <div class="player-seekrow">
+      <span id="player-elapsed">0:00</span>
+      <input type="range" id="player-seek" min="0" max="1000" value="0" step="1" aria-label="Seek">
+      <span id="player-total">0:00</span>
+    </div>
   </div>
   <div class="player-controls">
     <button type="button" id="btn-prev" aria-label="Previous track">⏮</button>
     <button type="button" id="btn-play" aria-label="Play or pause">▶</button>
     <button type="button" id="btn-next" aria-label="Next track">⏭</button>
+    <button type="button" id="btn-close" aria-label="Stop and clear the player">✕</button>
   </div>
+  <!-- YouTube engine (PLAYER LAW: source = YouTube, face = cover + our
+       transport, NO video surface). The iframe is a 1px offscreen holder —
+       never a visible video element. -->
+  <div id="yt-holder" aria-hidden="true"><div id="yt-player"></div></div>
   <audio id="player-audio" preload="none"></audio>
 </section>
 
