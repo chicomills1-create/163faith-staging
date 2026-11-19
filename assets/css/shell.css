@@ -75,16 +75,41 @@ h2 .g{color:var(--gold)}
 .counter{border:1px solid var(--line);background:var(--coal);border-radius:14px;padding:12px 16px;min-width:104px}
 .counter b{display:block;font-family:var(--serif);font-size:22px;color:var(--gold-hi)}
 .counter span{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
-.hubgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin-top:26px}
-@media(min-width:861px){.hubgrid{grid-template-columns:repeat(4,1fr)}.hubgrid .tile:first-child{grid-column:span 2}}
-.tile{position:relative;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--panel);min-height:150px;
-  display:flex;flex-direction:column;justify-content:flex-end;padding:16px;text-align:left;color:var(--bone);transition:transform .25s ease,border-color .25s ease;width:100%}
-.tile:hover{transform:translateY(-4px);border-color:var(--gold-dim)}
-.tile .tile-art{position:absolute;inset:0;background:radial-gradient(120% 120% at 20% 0%,rgba(212,175,55,.28),rgba(5,5,5,0) 55%),linear-gradient(160deg,#171204,#0a0a0a 65%)}
-.tile .tile-ico{position:absolute;top:14px;left:16px;font-size:26px;color:var(--gold)}
-.tile h3{position:relative;font-family:var(--serif);font-size:21px;letter-spacing:.04em}
-.tile p{position:relative;font-size:12.5px;color:var(--mute);margin-top:3px;line-height:1.45}
-.tile .tile-name{position:relative}
+/* ---------- HOME: HERO — "THE MOVEMENT" (ChatGPT art direction; founder
+   visual ruling 2026-11-19: photographic, AI-intense, urban mixtape church.
+   Type is clean HTML over the photo — never baked in; the only overlay is
+   the dark legibility gradient, never a gold gradient.) ---------- */
+.hero{position:relative;border:1px solid rgba(212,175,55,.35);border-radius:20px;overflow:hidden;background:#000;
+  height:min(44vh,440px);min-height:300px}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,5,.42),rgba(5,5,5,0) 32%,rgba(5,5,5,0) 48%,rgba(5,5,5,.88))}
+.hero-type{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:20px 22px}
+.hero-mark{font-family:var(--serif);font-size:14px;letter-spacing:.34em;color:var(--bone);text-shadow:0 1px 10px rgba(0,0,0,.7)}
+.hero-mark b{color:var(--gold)}
+.hero-head{font-size:clamp(32px,7.6vw,56px);text-shadow:0 2px 24px rgba(0,0,0,.6)}
+.hero-head .gold{color:var(--gold)}
+.hero-line{margin-top:8px;font-size:15.5px;color:var(--bone)}
+@media(min-width:861px){.hero{height:min(54vh,520px)}.hero-type{padding:26px 30px}}
+
+/* ---------- HOME: PHOTO TILES — full-bleed photo cards, 4:5, numbered.
+   The flat gold-gradient + glyph-icon tile design is deleted entirely.
+   Thin antique-gold hairline border; hub name in bold white over a dark
+   bottom gradient; subtle gold glow on hover/active. SHOP runs full-width
+   (16:9) as the commercial destination. ---------- */
+.hubgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
+@media(min-width:861px){.hubgrid{grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}}
+.tile{position:relative;display:block;width:100%;aspect-ratio:4/5;padding:0;overflow:hidden;text-align:left;color:var(--bone);
+  background:#000;border:1px solid rgba(212,175,55,.35);border-radius:16px;
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.tile:hover,.tile:active{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 12px 30px rgba(0,0,0,.6),0 0 18px rgba(212,175,55,.22)}
+.tile .tile-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tile .tile-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,5,.25),rgba(5,5,5,0) 34%,rgba(5,5,5,0) 50%,rgba(5,5,5,.88))}
+.tile .tile-num{position:absolute;top:12px;left:14px;font-family:var(--serif);font-size:14px;letter-spacing:.18em;color:var(--gold-hi);text-shadow:0 1px 8px rgba(0,0,0,.85)}
+.tile .tile-name{position:absolute;left:14px;right:14px;bottom:13px}
+.tile h3{font-family:var(--serif);font-size:21px;letter-spacing:.04em;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.6)}
+.tile p{font-size:12.5px;color:rgba(239,233,220,.85);margin-top:3px;line-height:1.45}
+.tile.wide{grid-column:1/-1;aspect-ratio:16/9}
+@media(max-width:400px){.tile h3{font-size:18px}}
 
 /* ---------- MEET THE PASTOR (home face, row MTP) ---------- */
 .pastor{margin-top:38px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:linear-gradient(160deg,#141105,#0a0a0a 55%);display:grid;grid-template-columns:1fr}
